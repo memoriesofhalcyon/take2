@@ -1,5 +1,6 @@
 package net.halcyon.taketwo;
 
+import net.halcyon.taketwo.itemigues.ModItemsigues;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -29,6 +30,9 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+
+import static net.halcyon.taketwo.itemigues.ModItemsigues.*;
+import static net.halcyon.taketwo.itemigues.ModItemsigues.KNIFE;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(TakeTwo.MODID)
@@ -67,7 +71,7 @@ public class TakeTwo {
     public TakeTwo(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-
+        register(modEventBus);
         // Register the Deferred Register to the mod event bus so blocks get registered
         BLOCKS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
@@ -85,6 +89,8 @@ public class TakeTwo {
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+       // ModItemsigues.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -104,6 +110,9 @@ public class TakeTwo {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(EXAMPLE_BLOCK_ITEM);
+        }
+        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES){
+            event.accept(ModItemsigues.KNIFE);
         }
     }
 
