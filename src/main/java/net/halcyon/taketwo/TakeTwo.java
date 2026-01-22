@@ -90,7 +90,6 @@ public class TakeTwo {
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
-       // ModItemsigues.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
