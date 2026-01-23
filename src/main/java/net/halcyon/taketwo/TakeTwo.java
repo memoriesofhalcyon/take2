@@ -111,7 +111,8 @@ public class TakeTwo {
             event.accept(EXAMPLE_BLOCK_ITEM);
         }
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES){
-            event.accept(ModItemsigues.KNIFE);
+            event.accept(KNIFE);
+            event.accept(HBKNIFE);
         }
     }
 

@@ -11,6 +11,8 @@ public class ModItemsigues {
 
     public static final DeferredItem<Item> KNIFE = ITEMS.register("knife",()-> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> HBKNIFE = ITEMS.register("hbknife",() -> new Item(new Item.Properties()));
+
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }
