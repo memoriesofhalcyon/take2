@@ -1,6 +1,30 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-      "layer0": "taketwo:item/knife"
-  }
+  "loader": "neoforge:separate_transforms",
+  "gui_light": "front",
+  "base" : {
+    },
+    "perspectives": {
+      "firstperson_righthand": {
+        "parent": "taketwo:item/heldknife"
+      },
+      "firstperson_lefthand": {
+        "parent": "taketwo:item/heldknife"
+      },
+      "thirdperson_righthand": {
+        "parent": "taketwo:item/heldknife"
+      },
+      "thirdperson_lefthand": {
+        "parent": "taketwo:item/heldknife"
+      },
+      "gui": {
+        "parent": "taketwo:item/hbknife",
+        "gui_light": "front"
+      },
+      "ground": {
+        "parent": "taketwo:item/hbknife"
+      },
+      "fixed": {
+        "parent": "taketwo:item/hbknife"
+      }
+    }
 }

@@ -1,4 +1,9 @@
 {
   "item.taketwo.knife": "Knife",
-  "item.taketwo.hbknife": "knife in hotbar"
+  "item.taketwo.hbknife": "knife in hotbar",
+
+  "block.taketwo.knife_block": " uhh yep this is a block. a block of knife. yep",
+  "block.taketwo.spike": "spoik",
+
+  "creativetab.taketwo.taketwo_tab" : "mwhehehehehhe"
 }
