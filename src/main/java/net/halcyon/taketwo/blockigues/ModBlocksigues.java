@@ -30,7 +30,7 @@ public class ModBlocksigues {
 
     public static final DeferredBlock<Block> KNIFE_BLOCK = registerBlock("knife_block", () -> new TransparentBlock(BlockBehaviour.Properties.of().friction(1.1F).ignitedByLava().speedFactor(1.0f).noOcclusion().isViewBlocking(ModBlocksigues::never)));
 
-    public static final DeferredBlock<Block> SPIKE = registerBlock("spike", () -> new TransparentBlock(BlockBehaviour.Properties.of().isViewBlocking(ModBlocksigues::never).noOcclusion().lightLevel(state ->8).noCollission()));
+    public static final DeferredBlock<Block> SPIKE = registerBlock("spike", () -> new TransparentBlock(BlockBehaviour.Properties.of().isViewBlocking(ModBlocksigues::never).noOcclusion().lightLevel(state ->-8).noCollission()));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

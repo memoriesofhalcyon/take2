@@ -21,6 +21,7 @@ public class TakeTwocrativemenu {
             .displayItems((itemDisplayParameters, output) -> {
                 output.accept(ModItemsigues.HBKNIFE);
                 output.accept(ModItemsigues.KNIFE);
+                output.accept(ModItemsigues.POCKET_WATCH);
 
                 //blocks
 
