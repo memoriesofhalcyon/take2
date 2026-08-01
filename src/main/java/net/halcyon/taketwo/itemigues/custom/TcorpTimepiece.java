@@ -32,37 +32,41 @@ public class TcorpTimepiece extends Item {
         ItemStack itemstack = player.getItemInHand(hand);
         boolean isTimelocked = player.getData(TIMELESS);
         boolean altFunc = player.isCrouching();
-        if (isTimelocked && !altFunc) {
-            player.displayClientMessage(Component.literal("You can't use this right now"), true);
-            player.getCooldowns().removeCooldown(this);
-            return InteractionResultHolder.fail(itemstack);
-        }
-        else if(!altFunc) {
-            player.displayClientMessage(Component.literal("Accelerating..."), true);
-            player.setData(TIMELESS, true);
-            timeStored = 0;
-            player.getCooldowns().addCooldown(this,10);
-            return InteractionResultHolder.consume(itemstack);
-        }
-        else if (altFunc) {
-            if (collecting){
-                collecting = false;
-                accelerating = true;
-                mode = "Accelerating";
-            } else if (accelerating) {
-                collecting = true;
-                accelerating = false;
-                mode = "Collecting";
+        if (!level.isClientSide) {
+            if (isTimelocked && !altFunc) {
+                player.displayClientMessage(Component.literal("You can't use this right now"), true);
+                player.getCooldowns().removeCooldown(this);
+                return InteractionResultHolder.fail(itemstack);
             }
-            player.displayClientMessage(Component.literal("Current mode:" + mode), true);
-            player.startUsingItem(hand);
-            player.getCooldowns().addCooldown(this,10);
-            return InteractionResultHolder.consume(itemstack);
+            else if (!altFunc) {
+                player.displayClientMessage(Component.literal("Accelerating..."), true);
+                player.setData(TIMELESS, true);
+                timeStored = 0;
+                player.getCooldowns().addCooldown(this, 10);
+                return InteractionResultHolder.consume(itemstack);
+            }
+            else if (altFunc) {
+                if (collecting) {
+                    collecting = false;
+                    accelerating = true;
+                    mode = "Accelerating";
+                } else if (accelerating) {
+                    collecting = true;
+                    accelerating = false;
+                    mode = "Collecting";
+                }
+                player.displayClientMessage(Component.literal("Current mode: " + mode), true);
+                player.startUsingItem(hand);
+                player.getCooldowns().addCooldown(this, 10);
+                return InteractionResultHolder.consume(itemstack);
+            }
         }
-        else{
+        else {
             return InteractionResultHolder.fail(itemstack);
         }
+        return null;
     }
+
     @Override
     public int getUseDuration(ItemStack stack, net.minecraft.world.entity.LivingEntity entity) {
         return 72000; // Can be held down continuously for a long time

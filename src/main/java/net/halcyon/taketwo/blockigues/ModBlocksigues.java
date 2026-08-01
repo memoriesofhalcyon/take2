@@ -28,7 +28,7 @@ public class ModBlocksigues {
 
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(TakeTwo.MODID);
 
-    public static final DeferredBlock<Block> KNIFE_BLOCK = registerBlock("knife_block", () -> new TransparentBlock(BlockBehaviour.Properties.of().friction(1.1F).ignitedByLava().speedFactor(1.0f).noOcclusion().isViewBlocking(ModBlocksigues::never)));
+    public static final DeferredBlock<Block> KNIFE_BLOCK = registerBlock("knife_block", () -> new TransparentBlock(BlockBehaviour.Properties.of().friction(0.8F).ignitedByLava().speedFactor(1.0f).noOcclusion().isViewBlocking(ModBlocksigues::never)));
 
     public static final DeferredBlock<Block> SPIKE = registerBlock("spike", () -> new TransparentBlock(BlockBehaviour.Properties.of().isViewBlocking(ModBlocksigues::never).noOcclusion().lightLevel(state ->-8).noCollission()));
 
