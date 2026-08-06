@@ -45,7 +45,7 @@ public class TcorpPropaganda extends Item {
                 }
                 else if (nextChange ==0) {
                     AttributeMap attributes = (AttributeMap) livingEntity.getAttributes();
-                    attributes.attr(SPEED)
+                    attributes.attr(A)
                     nextChange = ((int) (Math.random()*100));
                 }
             }
